@@ -1,0 +1,12 @@
+/* need-horizontal-message */
+.need-horizontal-message {
+    background-color: #464646;
+    color: #fff;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    padding-top: 40vh;
+}
+/* /need-horizontal-message */
