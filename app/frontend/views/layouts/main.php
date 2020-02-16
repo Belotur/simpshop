@@ -62,8 +62,6 @@ frontend\assets\AppAsset::register($this);
         </div>
     </footer>
 
-    <script src="navbar.js"></script>
-
     <?= \frontend\components\widgets\horizontalViewRequired\HorizontalViewRequiredWidget::widget() ?>
 
     <?php $this->endBody() ?>
