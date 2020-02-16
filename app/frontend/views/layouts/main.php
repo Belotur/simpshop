@@ -3,9 +3,8 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use common\widgets\Alert;
 use macgyer\yii2materializecss\lib\Html;
-use macgyer\yii2materializecss\widgets\Alert;
-use yii\helpers\Url;
 
 frontend\assets\AppAsset::register($this);
 ?>
@@ -24,164 +23,44 @@ frontend\assets\AppAsset::register($this);
 
     <body>
     <?php $this->beginBody() ?>
-    <div class="main-container">
-        <header class="page-header">
-            <nav class="grey darken-3">
-                <div class="nav-wrapper">
-                    <a href="/" class="brand-logo left">MP</a>
-                    <ul id="nav-mobile" class="right">
-                        <li>
-                            <a href="#" id="app-menu">
-                                <i class="material-icons">dehaze</i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-bell">
-                                    <span class="badge red">1</span>
-                                </i>
 
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-cart"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-consultants"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-share"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-arrow-left"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-arror-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
 
-        <main class="content">
-            <div class="grid-column-left">
-                <ul class="collection tools-panels">
-                    <li class="collection-item grey darken-3">
-                        <a href="#" title="Мебель" class="white-text">
-                            <span class="icon-furniture"></span>
-                        </a>
-                    </li>
-                    <li class="collection-item grey darken-3">
-                        <a href="#" title="Интерьер" class="white-text">
-                            <span class="icon-materials"></span>
-                        </a>
-                    </li>
-                    <li class="collection-item grey darken-3">
-                        <a href="#" title="Конструкции" class="white-text">
-                            <span class="icon-inteerier"></span>
-                        </a>
-                    </li>
-                    <li class="collection-item grey darken-3">
-                        <a href="#" title="Строительство" class="white-text">
-                            <span class="icon-materials"></span>
-                        </a>
-                    </li>
-                    <li class="collection-item grey darken-3">
-                        <a href="#" title="Бытовая техника" class="white-text">
-                            <span class="icon-appliances"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">Simple Shop</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#!">Обратная связь</a></li>
+                <li><a href="#!">О компании</a></li>
+                <li><a href="#!">Личный кабинет</a></li>
+                <li><a href="#!">Заказы пользователя</a></li>
+                <li><a href="#!">Вопросы-ответы</a></li>
+                <li><a href="#!">Оферта</a></li>
+                <li><a href="#!">Корзина</a></li>
+            </ul>
+        </div>
+    </nav>
 
-            <div>
+
+    <main class="content">
                 <?= Alert::widget() ?>
-
                 <?= $content ?>
-            </div>
-
-            <div class="grid-column-right">
-                <ul class="collection tools-panels">
-                    <?php for($i = 0; $i <= 5; $i++): ?>
-                        <li class="collection-item grey darken-3">
-                            <a href="#" title="Бытовая техника" class="white-text">
-                                <span class="icon-appliances"></span>
-                            </a>
-                        </li>
-                    <?php endfor; ?>
-                </ul>
-            </div>
         </main>
 
-        <!-- @todo Add to appMenu widget -->
-        <div class="app-menu hidden">
-            <div class="main-menu-wrapper container-fluid">
-                <a href="#" class="app-menu-item square">
-                    <i class="icon-cart"></i>
-                    <span>Корзина</span>
-                </a>
-                <a href="#" class="app-menu-item square">
-                    <i class="icon-favorites"></i>
-                    <span>Избранное</span>
-                </a>
-                <a href="#" class="app-menu-item square">
-                    <i class="icon-orders"></i>
-                    <span>Заказы</span>
-                </a>
-                <a href="#" class="app-menu-item square">
-                    <i class="icon-messages"></i>
-                    <span>Сообщения</span>
-                </a>
-
-                <a href="<?= Url::to(['pages/index', 'key' => \common\models\Page::KEY_PROVISIONERS_OFFER]) ?>"
-                   class="app-menu-item square">
-                    <i class="icon-topartners"></i>
-                    <span>Поставщикам</span>
-                </a>
-                <a href="<?= Url::to(['pages/index', 'key' => \common\models\Page::KEY_TERMS_OF_USE]) ?>"
-                   class="app-menu-item square">
-                    <i class="icon-conditions"></i>
-                    <span>Условия</span>
-                </a>
-                <a href="#" class="app-menu-item square">
-                    <i class="icon-user"></i>
-                    <span>Личный кабинет</span>
-                </a>
-                <?php if (Yii::$app->getUser()->isGuest): ?>
-                    <a href="<?= Url::to(['users/login']) ?>" class="app-menu-item square">
-                        <i class="icon-login"></i>
-                        <span>Вход</span>
-                    </a>
-                <?php else: ?>
-                    <?= Html::beginForm(['/users/logout'], 'post', ['class' => 'app-menu-item square']); ?>
-
-                    <?= Html::submitButton(
-                    '<i class="icon-login"></i> Выход', ['class' => 'btn grey darken-3 logout-button']
-                    ); ?>
-                    <?= Html::endForm() ?>
-                <?php endif; ?>
-
-                <a href="#" class="app-menu-item flat-left">
-                    <i class="icon-login"></i>
-                    <span>Наши контакты</span>
-                </a>
-                <a href="#" class="app-menu-item flat-right">
-                    <i class="icon-login"></i>
-                    <span>Помощь</span>
-                </a>
+    <footer class="page-footer light-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">The Shop</h5>
+                    <p class="grey-text text-lighten-4">The Shop description.</p>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+        </div>
+    </footer>
 
     <?= \frontend\components\widgets\horizontalViewRequired\HorizontalViewRequiredWidget::widget() ?>
 
