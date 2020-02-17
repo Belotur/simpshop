@@ -18,7 +18,7 @@ class m200212_202652_catalog_main_table extends Migration
             'description' => $this->string(512)->null()->comment('Описание товара'),
             'picture' => $this->string(250)->null()->comment('Название файла изображения товара'),
             'manufacturer_id' => $this->integer()->unsigned()->notNull()->comment('ID производителя'),
-            'type_id' => $this->integer()->unsigned()->notNull()->comment('ID типа товара'),
+            'clothes_type_id' => $this->integer()->unsigned()->notNull()->comment('ID типа товара'),
             'sex' => $this->string(120)->notNull()->comment('Для какого пола'),
             'style_id' => $this->integer()->unsigned()->notNull()->comment('ID стиля товара'),
             'model_id' => $this->integer()->unsigned()->notNull()->comment('ID модели товара'),
@@ -47,9 +47,9 @@ class m200212_202652_catalog_main_table extends Migration
         );
 
         $this->addForeignKey(
-            'FK_catalog_type_id',
-            '{{%catalog}}', 'type_id',
-            '{{%types}}', 'id'
+            'FK_catalog_clothes_type_id',
+            '{{%catalog}}', 'clothes_type_id',
+            '{{%clothes_types}}', 'id'
         );
 
         $this->addForeignKey(
@@ -97,7 +97,7 @@ class m200212_202652_catalog_main_table extends Migration
         echo "m200212_202652_catalog_main_table cannot be reverted.\n";
 
         $this->dropForeignKey('FK_catalog_manufacturer_id', '{{%catalog}}');
-        $this->dropForeignKey('FK_catalog_type_id', '{{%catalog}}');
+        $this->dropForeignKey('FK_catalog_clothes_type_id', '{{%catalog}}');
         $this->dropForeignKey('FK_catalog_style_id', '{{%catalog}}');
         $this->dropForeignKey('FK_catalog_model_id', '{{%catalog}}');
         $this->dropForeignKey('FK_catalog_color_id', '{{%catalog}}');
