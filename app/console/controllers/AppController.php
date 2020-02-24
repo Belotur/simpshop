@@ -22,7 +22,7 @@ class AppController extends Controller
 
         $this->initRoles();
         $this->initAdmins();
-        $this->initPages();
+        //$this->initPages();
 
         $this->stdout('Инициализация данных завершена.' . PHP_EOL);
     }
