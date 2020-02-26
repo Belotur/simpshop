@@ -1,31 +1,30 @@
 <?php
 
+use yii\helpers\Html;
+use macgyer\yii2materializecss\widgets\form\ActiveForm;
+
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\PasswordResetRequestForm */
 
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-
-$this->title = 'Request password reset';
+$this->title = 'Запрос смены пароля';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-request-password-reset">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="site-request-password-reset container">
+	<h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out your email. A link to reset password will be sent there.</p>
+	<p>Пожалуйста укажите email. Ссылка для восстановления пароля будет выслана на него.</p>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
-
-                <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Send', ['class' => 'btn btn-primary']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col m8 push-m2">
+			<?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
+			<?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
+			<div class="row">
+				<div class="col m12">
+					<?= Html::submitButton('Отправить', ['class' => 'btn']) ?>
+				</div>
+			</div>
+			<?php ActiveForm::end(); ?>
+		</div>
+	</div>
 </div>
