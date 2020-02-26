@@ -20,6 +20,5 @@ class AppAsset extends AssetBundle
         'macgyer\yii2materializecss\assets\MaterializePluginAsset',
         'macgyer\yii2materializecss\assets\MaterializeAsset',
         'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
     ];
 }
