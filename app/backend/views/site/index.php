@@ -1,53 +1,46 @@
 <?php
 
-/* @var $this yii\web\View */
+use macgyer\yii2materializecss\lib\Html;
 
-$this->title = 'My Yii Application';
+/** @var $this yii\web\View */
+/** @var $model \backend\models\views\StatisticsViewModel */
+
+$formatter = Yii::$app->getFormatter();
+
+$this->title = 'Панель управления';
 ?>
 <div class="site-index">
+	<h1><?= $this->title ?></h1>
+	<div class="row">
+		<div class="col s12 m6">
+			<div class="card">
+				<div class="card-content">
+					<span class="card-title">Пользователи</span>
+					<p>
+						<?= Html::a('Пользователи', ['users/index']) ?>:
+						<?= $formatter->asInteger($model->getUsersCount()) ?>
+					</p>
+					<p>
+						<?= Html::a('Администратры', ['admins/index']) ?>:
+						<?= $formatter->asInteger($model->getAdminsCount()) ?>
+					</p>
+				</div>
+			</div>
+		</div>
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
+		<div class="col s12 m6">
+			<div class="card">
+				<div class="card-content">
+					<span class="card-title">Магазин</span>
+					<p>
+						<?= Html::a('Товары', ['#']) ?>: <?= $formatter->asInteger(200) ?>
+					</p>
+					<p>
+						<?= Html::a('Заказы', '#') ?>: <?= $formatter->asInteger(11) ?>
+					</p>
+				</div>
+			</div>
+		</div>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
-    </div>
+	</div>
 </div>
