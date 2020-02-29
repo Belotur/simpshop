@@ -23,12 +23,15 @@ class m200229_153434_add_feedback_table extends Migration
             'phone' => $this->string(15)->notNull()->comment('Номер телефона'),
             'message' => $this->text()->notNull()->comment('Сообщение'),
             'created_at' => $this->integer()->notNull()->comment('Создано'),
+            'updated_at' => $this->integer()->Null(),
             'feedback_category_id' => $this->integer(11)->unsigned()->comment('Категория'),
         ], $tableOptions);
 
         $this->createTable('{{%feedback_categories}}', [
             'id' => $this->primaryKey(11)->unsigned(),
-            'name' => $this->string(128)->notNull()->unique()->comment('Название категории')
+            'name' => $this->string(128)->notNull()->unique()->comment('Название категории'),
+            'created_at' => $this->integer()->notNull()->comment('Создано'),
+            'updated_at' => $this->integer()->notNull()->comment('Обновлено')
         ], $tableOptions);
 
         $this->createIndex(
