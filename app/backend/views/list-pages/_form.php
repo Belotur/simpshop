@@ -28,7 +28,6 @@ use vova07\imperavi\Widget;
             'plugins' => [
                 'fullscreen',
             ],
-
         ],
     ]); ?>
 
