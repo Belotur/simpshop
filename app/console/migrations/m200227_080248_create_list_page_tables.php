@@ -26,7 +26,6 @@ class m200227_080248_create_list_page_tables extends Migration
         $this->createTable('{{%list_page_blocks}}', [
             'id' => $this->primaryKey()->unsigned(),
             'list_page_id' => $this->integer()->unsigned()->notNull()->comment('Ключ страницы'),
-            'anchor' => $this->string(25)->unique()->comment('Якорная ссылка'),
             'title' => $this->string(128)->unique()->notNull()->comment('Заголовок'),
             'content' => $this->text()->null()->comment('Текст'),
         ]);

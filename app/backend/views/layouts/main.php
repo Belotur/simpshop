@@ -6,6 +6,7 @@ use macgyer\yii2materializecss\widgets\navigation\Nav;
 use macgyer\yii2materializecss\widgets\navigation\NavBar;
 use macgyer\yii2materializecss\widgets\navigation\Breadcrumbs;
 use macgyer\yii2materializecss\widgets\Alert;
+use macgyer\yii2materializecss\widgets\Icon;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -43,6 +44,7 @@ AppAsset::register($this);
 			$menuItems[] = ['label' => 'Главная', 'url' => ['site/index']];
 			$menuItems[] = ['label' => 'Администраторы', 'url' => ['admins/index']];
 			$menuItems[] = ['label' => 'Пользователи', 'url' => ['users/index']];
+			$menuItems[] = ['label' => 'Списковые страницы', 'url' => ['list-pages/index']];
 			$menuItems[] = '<li>'
 				. Html::beginForm(['/site/logout'], 'post')
 				. Html::submitButton(
