@@ -2,22 +2,16 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-//use macgyer\yii2materializecss\lib\Html;
-use macgyer\yii2materializecss\widgets\grid\GridView;
-use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\ListPage */
-
-/* @var $searchModel common\models\search\ListPageBlocksSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $model common\models\ListPageBlocks */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'List Pages', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'List Page Blocks', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="list-page-view">
+<div class="list-page-blocks-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -36,24 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'meta_title',
-            'meta_description',
-            'slug',
-            'title',
-            'content:html',
-        ],
-    ]) ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
             'list_page_id',
             'title',
             'content:ntext',
-
         ],
-    ]); ?>
+    ]) ?>
 
 </div>

@@ -2,18 +2,17 @@
 
 namespace backend\controllers;
 
-use common\models\search\ListPageBlocksSearch;
 use Yii;
-use common\models\ListPage;
-use common\models\search\ListPageSearch;
+use common\models\ListPageBlocks;
+use common\models\search\ListPageBlocksSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ListPagesController implements the CRUD actions for ListPage model.
+ * ListPageBlocksController implements the CRUD actions for ListPageBlocks model.
  */
-class ListPagesController extends Controller
+class ListPageBlocksController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,12 +30,12 @@ class ListPagesController extends Controller
     }
 
     /**
-     * Lists all ListPage models.
+     * Lists all ListPageBlocks models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ListPageSearch();
+        $searchModel = new ListPageBlocksSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,30 +45,26 @@ class ListPagesController extends Controller
     }
 
     /**
-     * Displays a single ListPage model.
+     * Displays a single ListPageBlocks model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
-        $searchModel = new ListPageBlocksSearch();
-        $dataProvider = $searchModel->search($id, Yii::$app->getRequest()->queryParams);
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Creates a new ListPage model.
+     * Creates a new ListPageBlocks model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ListPage();
+        $model = new ListPageBlocks();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -81,7 +76,7 @@ class ListPagesController extends Controller
     }
 
     /**
-     * Updates an existing ListPage model.
+     * Updates an existing ListPageBlocks model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -101,7 +96,7 @@ class ListPagesController extends Controller
     }
 
     /**
-     * Deletes an existing ListPage model.
+     * Deletes an existing ListPageBlocks model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -115,15 +110,15 @@ class ListPagesController extends Controller
     }
 
     /**
-     * Finds the ListPage model based on its primary key value.
+     * Finds the ListPageBlocks model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ListPage the loaded model
+     * @return ListPageBlocks the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ListPage::findOne($id)) !== null) {
+        if (($model = ListPageBlocks::findOne($id)) !== null) {
             return $model;
         }
 
