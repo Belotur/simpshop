@@ -45,7 +45,8 @@ class m200229_153434_add_feedback_table extends Migration
             '{{%feedback_messages}}',
             'feedback_category_id',
             '{{%feedback_categories}}',
-            'id'
+            'id',
+            'CASCADE'
         );
 
         $this->addCommentOnTable('{{%feedback_messages}}', 'Обратная связь');
