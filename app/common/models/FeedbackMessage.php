@@ -36,12 +36,19 @@ class FeedbackMessage extends ActiveRecord
     public function rules()
     {
         return [
-            [['email', 'phone', 'message', 'created_at'], 'required'],
+            [['email', 'phone', 'message', 'feedback_category_id'], 'required'],
             [['message'], 'string'],
             [['created_at', 'updated_at', 'feedback_category_id'], 'integer'],
+            [['created_at', 'updated_at'], 'safe'],
             [['email'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 15],
-            [['feedback_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => FeedbackCategory::class, 'targetAttribute' => ['feedback_category_id' => 'id']],
+            [
+                ['feedback_category_id'],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => FeedbackCategory::class,
+                'targetAttribute' => ['feedback_category_id' => 'id']
+            ],
         ];
     }
 

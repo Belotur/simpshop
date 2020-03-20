@@ -8,7 +8,7 @@ use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
- *
+ * Модель категорий обратной связи
  *
  * @property int $id
  * @property string $name Название категории
@@ -33,7 +33,8 @@ class FeedbackCategory extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'created_at', 'updated_at'], 'required'],
+            ['name', 'required'],
+            [['created_at', 'updated_at'], 'safe'],
             [['created_at', 'updated_at'], 'integer'],
             [['name'], 'string', 'max' => 128],
             [['name'], 'unique'],
