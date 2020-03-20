@@ -60,14 +60,16 @@ class ListPageBlocksController extends Controller
     /**
      * Creates a new ListPageBlocks model.
      * If creation is successful, the browser will be redirected to the 'view' page.
+     * @param integer $listPageId
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($listPageId)
     {
         $model = new ListPageBlocks();
+        $model->list_page_id = $listPageId;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['../list-pages/view', 'id' => $model->list_page_id]);
         }
 
         return $this->render('create', [

@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'list_page_id',
             'title',
             'content:ntext',
+
         ],
     ]) ?>
 

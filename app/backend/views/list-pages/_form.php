@@ -31,6 +31,9 @@ use vova07\imperavi\Widget;
         ],
     ]); ?>
 
+    <p>
+        <?= Html::a('Add block', ['../list-page-blocks/create', 'listPageId' => $model->id], ['class' => 'btn btn-success','data-method' => 'POST']) ?>
+    </p>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
