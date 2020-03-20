@@ -30,7 +30,7 @@ frontend\assets\AppAsset::register($this);
 		<div class="nav-wrapper container">
 			<a href="<?= Url::to('/') ?>" class="brand-logo">Simple Shop</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="#!">Обратная связь</a></li>
+				<li><a href="<?= Url::to(['feedback/index']) ?>">Обратная связь</a></li>
 				<li><a href="#!">О компании</a></li>
 				<li><a href="#!">Личный кабинет</a></li>
 				<li><a href="#!">Заказы пользователя</a></li>
