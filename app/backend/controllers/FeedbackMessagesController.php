@@ -31,7 +31,7 @@ class FeedbackMessagesController extends Controller
     }
 
     /**
-     * Lists all FeedbackMessage models.
+     * Вывод списка всех сообщений обратной связи.
      * @return mixed
      */
     public function actionIndex()
@@ -46,7 +46,7 @@ class FeedbackMessagesController extends Controller
     }
 
     /**
-     * Displays a single FeedbackMessage model.
+     * Вывод одного сообщения обратной связи.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -66,44 +66,9 @@ class FeedbackMessagesController extends Controller
         return FeedbackCategory::find()->all();
     }
 
-    /**
-     * Updates an existing FeedbackMessage model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-            'categories' => $this->getCategories(),
-        ]);
-    }
 
     /**
-     * Deletes an existing FeedbackMessage model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the FeedbackMessage model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * Поиск существующей модели по id.
      * @param integer $id
      * @return FeedbackMessage the loaded model
      * @throws NotFoundHttpException if the model cannot be found

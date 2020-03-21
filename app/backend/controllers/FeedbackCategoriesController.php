@@ -30,7 +30,7 @@ class FeedbackCategoriesController extends Controller
     }
 
     /**
-     * Lists all FeedbackCategory models.
+     * Вывод списка всех категорий обратной связи.
      * @return mixed
      */
     public function actionIndex()
@@ -45,8 +45,8 @@ class FeedbackCategoriesController extends Controller
     }
 
     /**
-     * Creates a new FeedbackCategory model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Создание новой категории обратной связи.
+     * Если всё прошло успешно, то возвращает на index.php категорий обратной связи.
      * @return mixed
      */
     public function actionCreate()
@@ -63,8 +63,8 @@ class FeedbackCategoriesController extends Controller
     }
 
     /**
-     * Updates an existing FeedbackCategory model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * Изменение существующей категории обратной связи.
+     * Если всё прошло успешно, то возвращает на index.php категорий обратной связи.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -83,8 +83,8 @@ class FeedbackCategoriesController extends Controller
     }
 
     /**
-     * Deletes an existing FeedbackCategory model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * Удаляет существующую категрию обратной связи.
+     * Если всё прошло успешно, то возвращает на index.php категорий обратной связи.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -97,8 +97,7 @@ class FeedbackCategoriesController extends Controller
     }
 
     /**
-     * Finds the FeedbackCategory model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * Поиск существующей модели по id.
      * @param integer $id
      * @return FeedbackCategory the loaded model
      * @throws NotFoundHttpException if the model cannot be found
