@@ -23,7 +23,7 @@ use macgyer\yii2materializecss\widgets\form\ActiveForm;
                 ['' => 'Выбрать'],
                 ArrayHelper::map($categories, 'id', 'name')
             )
-        )->hint('Укажите категорию чтобы...') ?>
+        )->hint('Укажите категорию') ?>
 
         <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
@@ -32,7 +32,7 @@ use macgyer\yii2materializecss\widgets\form\ActiveForm;
         <?= $form->field($model, 'message')->textarea(['rows' => 6]) ?>
 
         <div class="right-align">
-            <?= Html::submitButton('Сховати', ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton('Отправить', ['class' => 'btn btn-success']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>
