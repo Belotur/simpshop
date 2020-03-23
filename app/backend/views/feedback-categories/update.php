@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\FeedbackCategory */
 
-$this->title = 'Update Feedback Category: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Feedback Categories', 'url' => ['index']];
+$this->title = 'Изменение категории: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Категории обратной связи', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

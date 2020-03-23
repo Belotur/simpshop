@@ -9,7 +9,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\search\FeedbackCategorySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Feedback Categories';
+$this->title = 'Категории обратной связи';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="feedback-category-index">
@@ -17,7 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Управление сообщениями', ['../feedback-messages/index'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
