@@ -66,9 +66,8 @@ class FeedbackMessagesController extends Controller
         return FeedbackCategory::find()->all();
     }
 
-
     /**
-     * Поиск существующей модели по id.
+     * Поиск сообщения по id.
      * @param integer $id
      * @return FeedbackMessage the loaded model
      * @throws NotFoundHttpException if the model cannot be found
