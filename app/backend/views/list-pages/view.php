@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Add block', ['../list-page-blocks/create', 'listPageId' => $model->id], ['class' => 'btn btn-success','data-method' => 'POST']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -45,14 +46,18 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
     <?= GridView::widget([
+
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+            'id',
             'list_page_id',
             'title',
             'content:ntext',
-            ['class' => 'macgyer\yii2materializecss\widgets\grid\ActionColumn'],
+            ['class' => 'macgyer\yii2materializecss\widgets\grid\ActionColumn',
+                'controller' => 'list-page-blocks',
+            ],
         ],
     ]); ?>
 

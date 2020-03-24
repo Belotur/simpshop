@@ -89,7 +89,7 @@ class ListPageBlocksController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['../list-pages/view', 'id' => $model->list_page_id]);
         }
 
         return $this->render('update', [
@@ -106,9 +106,10 @@ class ListPageBlocksController extends Controller
      */
     public function actionDelete($id)
     {
+        $model = $this->findModel($id);
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['../list-pages/view', 'id' => $model->list_page_id]);
     }
 
     /**
