@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'list_page_id',
             'title',
-            'content:ntext',
+            'content:html',
             ['class' => 'macgyer\yii2materializecss\widgets\grid\ActionColumn',
                 'controller' => 'list-page-blocks',
             ],
