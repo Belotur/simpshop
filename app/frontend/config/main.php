@@ -52,8 +52,7 @@ return [
 				'reset-password' => 'users/reset-password',
 				'resend-verification-email' => 'users/resend-verification-email',
 				'verify-email' => 'users/verify-email',
-
-				'pages/<key>' => 'pages/index',
+				'page/<slug:\w+>' => 'list-pages/view',
 
 			],
 		],

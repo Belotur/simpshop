@@ -5,15 +5,14 @@ namespace frontend\controllers;
 use Yii;
 use common\models\ListPage;
 use common\models\search\ListPageSearch;
-use common\models\search\ListPageBlocksSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ListPageController implements the CRUD actions for ListPage model.
+ * ListPagesController implements the CRUD actions for ListPage model.
  */
-class ListPageController extends Controller
+class ListPagesController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,35 +29,31 @@ class ListPageController extends Controller
         ];
     }
 
-//    /**
-//     * Lists all ListPage models.
-//     * @return mixed
-//     */
-//    public function actionIndex()
-//    {
-//        $searchModel = new ListPageSearch();
-//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-//
-//        return $this->render('index', [
-//            'searchModel' => $searchModel,
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
+    /**
+     * Lists all ListPage models.
+     * @return mixed
+     */
+    public function actionIndex()
+    {
+        $searchModel = new ListPageSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single ListPage model.
-     * @param integer $id
+     * @param string $slug
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($slug)
     {
-        $searchModel = new ListPageBlocksSearch();
-        $dataProvider = $searchModel->search($id, Yii::$app->getRequest()->queryParams);
         return $this->render('view', [
-            'model' => $this->findModel($id),
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'model' => $this->findModel($slug),
         ]);
     }
 
@@ -79,7 +74,7 @@ class ListPageController extends Controller
 //            'model' => $model,
 //        ]);
 //    }
-
+//
 //    /**
 //     * Updates an existing ListPage model.
 //     * If update is successful, the browser will be redirected to the 'view' page.
@@ -117,13 +112,13 @@ class ListPageController extends Controller
     /**
      * Finds the ListPage model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param string $slug
      * @return ListPage the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($slug)
     {
-        if (($model = ListPage::findOne($id)) !== null) {
+        if (($model = ListPage::findOne(['slug'=>$slug])) !== null) {
             return $model;
         }
 

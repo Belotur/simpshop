@@ -34,7 +34,7 @@ frontend\assets\AppAsset::register($this);
 				<li><a href="#!">О компании</a></li>
 				<li><a href="#!">Личный кабинет</a></li>
 				<li><a href="#!">Заказы пользователя</a></li>
-				<li><a href="#!">Вопросы-ответы</a></li>
+				<li><a href='/page/faq'>Вопросы-ответы</a></li>
 				<li><a href="#!">Оферта</a></li>
 				<li><a href="#!">Корзина</a></li>
 				<?php if (Yii::$app->getUser()->isGuest): ?>
